@@ -1,0 +1,51 @@
+body {
+	background: white url("images/background.jpg");
+	font-family: Arial;
+}
+
+h1 {
+	text-shadow: 2px 2px 3px gray;
+}
+
+h2 {
+	text-shadow: 2px 2px 3px gray;
+}
+
+li a {
+	color: #AA6600;
+}
+
+table {
+	width: 300px;
+	border: 2px solid;
+}
+
+table th {
+	color: white;
+	background-color: black;
+}
+
+table td {
+	border: 1px solid;
+	text-align: center;
+}
+
+#btnStyle {
+	font-size: 14px;
+	padding: 5px;
+	margin-top: 8px;
+    border: none;
+	color: white;
+	background-color: #007700;
+}
+
+#btnStyle:hover {
+	background-color: #009900;
+}
+
+#errorMsg {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 5px;
+	color: red;
+}

@@ -1,0 +1,27 @@
+<html>
+    <head>
+	    <title>Django Tutorial - Polls</title>
+	</head>
+	<body>
+	    {% load static %}
+		<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+		<script src="{% static 'polls/about.js' %}"></script>
+		<img src="{% static 'polls/images/django_polls_logo.png' %}" alt="Django Polls" style="height: 100px;">
+	    <h1>Hello there! You're at the Django Polls Main Page.</h1>
+		<h3>Select a poll below...</h3>
+        {% if latest_question_list %}
+            <ul>
+        	{% for question in latest_question_list %}
+	            <!-- <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> -->
+				<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+	        {% endfor %}
+	        </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+		<br>
+		<button id="btnStyle" onclick=about()>
+		    About
+		</button>
+    </body>
+</html>

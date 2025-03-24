@@ -1,0 +1,38 @@
+<html>
+    <head>
+	    <title>Django Tutorial - Polls</title>
+	</head>
+	<body>
+	    {% load static %}
+		<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+		<img src="{% static 'polls/images/django_polls_logo.png' %}" alt="Django Polls" style="height: 100px;">
+	    <h2>Result of Question {{ question.id }}: {{ question.question_text }}</h2>
+		<table>
+		    <tr>
+			    <th>Option</th>
+				<th>Votes</th>
+		    </tr>
+			{% for choice in question.choice_set.all %}
+			<tr>
+			    <td>{{ choice.choice_text }}</td>
+				<td>{{ choice.votes }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		<!--
+		<ul>
+		{% for choice in question.choice_set.all %}
+		    <li>{{ choice.choice_text }} | {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+		{% endfor %}
+	    </ul>
+		-->
+		<br>
+		<a href="{% url 'polls:detail' question.id %}">
+		    <button id="btnStyle">Vote again?</button>
+		</a>
+		<br>
+		<a href="{% url 'polls:index' %}">
+		    <button id="btnStyle">Go to Main Page</button>
+		</a>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Django Tutorial - Polls</title>
+	</head>
+	<body>
+	    {% load static %}
+		<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+		<img src="{% static 'polls/images/django_polls_logo.png' %}" alt="Django Polls" style="height: 100px;">
+		<form action="{% url 'polls:vote' question.id %}" method="post">
+		{% csrf_token %}
+		<fieldset>
+		    <legend>
+			    <h2>Poll Question {{ question.id }}: {{ question.question_text }}</h2>
+			</legend>
+			{% if error_message %}<p id="errorMsg">{{ error_message }}</p>{% endif %}
+			{% for choice in question.choice_set.all %}
+			    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+				<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+		    {% endfor %}
+			<input id="btnStyle" type="submit" value="> Vote <">
+		</fieldset>
+		</form>
+		<a href="{% url 'polls:results' question.id %}">
+		    <button id="btnStyle">See Results</button>
+		</a> <br>
+		<a href="{% url 'polls:index' %}">
+		    <button id="btnStyle">Go to Main Page</button>
+		</a>
+		<!--
+		<strong>{{ question.question_text }}</strong>
+		<ul>
+		{% for choice in question.choice_set.all %}
+		    <li>{{ choice.choice_text }}</li>
+		{% endfor %}
+		</ul>
+		-->
+	</body>
+</html>

@@ -47,4 +47,36 @@ The screenshots below could give an idea of which pages will be encountered thro
 
 ## Details
 
-Details about each file will be shared at a later time.
+There are many files and directories to properly operate the project and the web polls application itself.
+
+**The root directory**
+
+* ``manage.py``: The command-line utility for interacting with the Django project in various ways.
+* ``db.sqlite3``: The database file to store the questions, choices and their related vote counts. Note that this app is using the default SQLite database system.
+
+**``mysite`` directory**
+
+* ``__pycache__``: This directory stores the compiled bytecode of imported modules within ``mysite``.
+* ``__init__.py``: An empty file to tell Python that this directory should be considered as a Python package.
+* ``asgi.py``: An entry point for ASGI-compatible web servres to serve the project.
+* ``settings.py``: Settings and configurations for this Django project.
+* ``urls.py``: The URL declarations for this Django project; think of it as a table of contents of this Django-powered site.
+* ``wsgi.py``: An entry point for WSGI-compatible web servers to serve the project.
+
+**``polls`` directory**
+
+* ``__pycache__``: This directory stores the compiled bytecode of imported modules within ``polls``.
+* ``migrations\0001_initial.py``: The details about the changes of the defined models are presented here; created after executing ''makemigrations``.
+* ``static\polls``: This directory holds the static files (e.g. CSS, JavaScript methods, images).
+* ``template\polls``: This directory contains the HTML page templates (with some Python code blocks) that correspond to the views for rendering (total of 3 pages).
+* ``__init__.py``: An empty file to tell Python that this directory should be considered as a Python package.
+* ``admin.py``: The customizations of polls administration page are contained here (items to display, filters, search fields, inlines).
+* ``apps.py``: The application file for ``polls`` to be registered as installed app for the project.
+* ``models.py``: The models and their attributes (fields) inside are implemented here; can contain additional self methods and foreign keys.
+* ``tests.py``: Several test methods for ``Question`` model and ``Index`` view to make sure the application is working as expected by simulating user behaviors.
+* ``urls.py``: The URL declarations for the web polls app, bound to their views. Currently, the generic views are being used for rendering pages.
+* ``views.py``: The structures of all views are written here. Currently, the generic views are adopted for the purpose of less coding. In addition, there is also ``views_old1.py`` file that represents the traditional version of these views.
+
+**``templates\admin`` directory**
+
+This directory contains two files ``base_site.html`` and ``index.html`` in order to alter the structure of the admin pages. These were taken from the Django's source files. Only the title was changed to ``Polls Administration``.

@@ -80,3 +80,18 @@ There are many files and directories to properly operate the project and the web
 **``templates\admin`` directory**
 
 This directory contains two files ``base_site.html`` and ``index.html`` in order to alter the structure of the admin pages. These were taken from the Django's source files. Only the title was changed to ``Polls Administration``.
+
+## Commands for Managing the Project
+
+These commands were used to manage the Django project and the web polls application together. You must be in the directory where ``manage.py`` resides before execution.
+
+* **``django-admin startproject mysite djangotutorial``**: Create a project called ``mysite`` inside ``djangotutorial`` directory. This will generate a few files as the starting point.
+* **``python manage.py runserver``**: Start the web server (development). Use ``Ctrl+C`` to stop.
+* **``python manage.py startapp polls``**: Create a directory called ``polls`` and together with that, generate several files for initial operation.
+* **``python manage.py makemigrations polls``**: Tell Django that some changes have been made to the models and want those changes to be stored as a migration.
+* **``python manage.py migrate``**: Look for the ``INSTALLED_APPS`` setting, create any necessary database tables according to the database settings.
+* **``python manage.py sqlmigrate polls 0001``**: Take the migration number for the app and return the SQL command for understanding what migration would run.
+* **``python manage.py check``**: Check for any problems in the project without making migrations or altering the database.
+* **``python manage.py shell``**: Start the interactive Python shell and play around with the free API given by Django.
+* **``python manage.py createsuperuser``**: Create a user who can login to the admin site. Specify the username, e-mail address and password.
+* **``python manage.py test polls``**: Run the written tests for ``polls`` application.
